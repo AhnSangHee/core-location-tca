@@ -14,6 +14,9 @@
 		6A44118D29E8CA830054259C /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 6A44118C29E8CA830054259C /* ComposableArchitecture */; };
 		6A44119029E8CD9E0054259C /* LocationManagerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A44118F29E8CD9E0054259C /* LocationManagerCore.swift */; };
 		6A4411AD29E90A500054259C /* GpsCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4411AC29E90A500054259C /* GpsCore.swift */; };
+		6A4411B329E90B380054259C /* LocationManagerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4411B229E90B370054259C /* LocationManagerClient.swift */; };
+		6A4411B529E90B450054259C /* LocationManagerClientLive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4411B429E90B450054259C /* LocationManagerClientLive.swift */; };
+		6A4411B729E90B520054259C /* LocationManagerClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4411B629E90B520054259C /* LocationManagerClientTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		6A44118429E8C9E70054259C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6A44118F29E8CD9E0054259C /* LocationManagerCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerCore.swift; sourceTree = "<group>"; };
 		6A4411AC29E90A500054259C /* GpsCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GpsCore.swift; sourceTree = "<group>"; };
+		6A4411B229E90B370054259C /* LocationManagerClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationManagerClient.swift; path = CoreLocationTCA/Dependency/Interface/LocationManagerClient.swift; sourceTree = SOURCE_ROOT; };
+		6A4411B429E90B450054259C /* LocationManagerClientLive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationManagerClientLive.swift; path = CoreLocationTCA/Dependency/Live/LocationManagerClientLive.swift; sourceTree = SOURCE_ROOT; };
+		6A4411B629E90B520054259C /* LocationManagerClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationManagerClientTest.swift; path = CoreLocationTCA/Dependency/Test/LocationManagerClientTest.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +44,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A27037629EA63B00052AA02 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				6A4411B629E90B520054259C /* LocationManagerClientTest.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		6A27037729EA63B70052AA02 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				6A4411B229E90B370054259C /* LocationManagerClient.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		6A27037829EA63BC0052AA02 /* Live */ = {
+			isa = PBXGroup;
+			children = (
+				6A4411B429E90B450054259C /* LocationManagerClientLive.swift */,
+			);
+			path = Live;
+			sourceTree = "<group>";
+		};
 		6A44117129E8C9E40054259C = {
 			isa = PBXGroup;
 			children = (
@@ -57,6 +87,7 @@
 		6A44117C29E8C9E40054259C /* CoreLocationTCA */ = {
 			isa = PBXGroup;
 			children = (
+				6A4411AE29E90B1C0054259C /* Dependency */,
 				6A4411AB29E90A4B0054259C /* GpsCore */,
 				6A44118E29E8CB240054259C /* LocationManagerCore */,
 				6A44117D29E8C9E40054259C /* CoreLocationApp.swift */,
@@ -89,6 +120,16 @@
 				6A4411AC29E90A500054259C /* GpsCore.swift */,
 			);
 			path = GpsCore;
+			sourceTree = "<group>";
+		};
+		6A4411AE29E90B1C0054259C /* Dependency */ = {
+			isa = PBXGroup;
+			children = (
+				6A27037829EA63BC0052AA02 /* Live */,
+				6A27037729EA63B70052AA02 /* Interface */,
+				6A27037629EA63B00052AA02 /* Test */,
+			);
+			path = Dependency;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,8 +210,11 @@
 			files = (
 				6A44119029E8CD9E0054259C /* LocationManagerCore.swift in Sources */,
 				6A44118029E8C9E40054259C /* ContentView.swift in Sources */,
+				6A4411B329E90B380054259C /* LocationManagerClient.swift in Sources */,
 				6A44117E29E8C9E40054259C /* CoreLocationApp.swift in Sources */,
 				6A4411AD29E90A500054259C /* GpsCore.swift in Sources */,
+				6A4411B529E90B450054259C /* LocationManagerClientLive.swift in Sources */,
+				6A4411B729E90B520054259C /* LocationManagerClientTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

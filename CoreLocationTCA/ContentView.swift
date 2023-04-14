@@ -7,20 +7,34 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+import ComposableArchitecture
+
+public struct ContentView: View {
+    let store: StoreOf<Gps>
+    
+    public init(store: StoreOf<Gps>) {
+        self.store = store
+    }
+    
+    public var body: some View {
+        WithViewStore(self.store, observe: { $0 }) { viewStore in
+            VStack {
+                Text("Gps")
+                    .onAppear {
+                        viewStore.send(.locationManager(.requestAuthorizationStatus))
+                    }
+            }
         }
-        .padding()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(
+            store: Store(
+                initialState: Gps.State(),
+                reducer: Gps()
+            )
+        )
     }
 }
