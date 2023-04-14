@@ -12,6 +12,8 @@
 		6A44118229E8C9E70054259C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A44118129E8C9E70054259C /* Assets.xcassets */; };
 		6A44118529E8C9E70054259C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A44118429E8C9E70054259C /* Preview Assets.xcassets */; };
 		6A44118D29E8CA830054259C /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 6A44118C29E8CA830054259C /* ComposableArchitecture */; };
+		6A44119029E8CD9E0054259C /* LocationManagerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A44118F29E8CD9E0054259C /* LocationManagerCore.swift */; };
+		6A4411AD29E90A500054259C /* GpsCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4411AC29E90A500054259C /* GpsCore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		6A44117F29E8C9E40054259C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6A44118129E8C9E70054259C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A44118429E8C9E70054259C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6A44118F29E8CD9E0054259C /* LocationManagerCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerCore.swift; sourceTree = "<group>"; };
+		6A4411AC29E90A500054259C /* GpsCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GpsCore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 		6A44117C29E8C9E40054259C /* CoreLocationTCA */ = {
 			isa = PBXGroup;
 			children = (
+				6A4411AB29E90A4B0054259C /* GpsCore */,
+				6A44118E29E8CB240054259C /* LocationManagerCore */,
 				6A44117D29E8C9E40054259C /* CoreLocationTCAApp.swift */,
 				6A44117F29E8C9E40054259C /* ContentView.swift */,
 				6A44118129E8C9E70054259C /* Assets.xcassets */,
@@ -67,6 +73,22 @@
 				6A44118429E8C9E70054259C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6A44118E29E8CB240054259C /* LocationManagerCore */ = {
+			isa = PBXGroup;
+			children = (
+				6A44118F29E8CD9E0054259C /* LocationManagerCore.swift */,
+			);
+			path = LocationManagerCore;
+			sourceTree = "<group>";
+		};
+		6A4411AB29E90A4B0054259C /* GpsCore */ = {
+			isa = PBXGroup;
+			children = (
+				6A4411AC29E90A500054259C /* GpsCore.swift */,
+			);
+			path = GpsCore;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,8 +167,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A44119029E8CD9E0054259C /* LocationManagerCore.swift in Sources */,
 				6A44118029E8C9E40054259C /* ContentView.swift in Sources */,
 				6A44117E29E8C9E40054259C /* CoreLocationTCAApp.swift in Sources */,
+				6A4411AD29E90A500054259C /* GpsCore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,7 +299,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CoreLocationTCA/Preview Content\"";
-				DEVELOPMENT_TEAM = P9G6PC5FMA;
+				DEVELOPMENT_TEAM = AUM397F8U5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -304,7 +328,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CoreLocationTCA/Preview Content\"";
-				DEVELOPMENT_TEAM = P9G6PC5FMA;
+				DEVELOPMENT_TEAM = AUM397F8U5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
