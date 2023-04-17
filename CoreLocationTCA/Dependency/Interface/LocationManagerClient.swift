@@ -13,8 +13,13 @@ import Dependencies
 
 struct LocationManagerClient {
     var delegate: () -> EffectTask<LocationManager.Action>
-    var locationServicesEnabled: () -> Bool
+    var locationServicesEnabled: @Sendable () -> Bool
+    var location: () -> CLLocation
     var authorizationStatus: () -> CLAuthorizationStatus
+    var requestAlwaysAuthorization: () -> EffectTask<Never>
+    var requestLocation: () -> EffectTask<Never>
+    var requestWhenInUseAuthorization: () -> EffectTask<Never>
+    var startUpdatingLocation: () -> EffectTask<Never>
 }
 
 extension DependencyValues {
