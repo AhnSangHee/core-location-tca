@@ -30,7 +30,31 @@ extension LocationManagerClient: DependencyKey {
         return Self(
             delegate: { delegate },
             locationServicesEnabled: { CLLocationManager.locationServicesEnabled() },
-            authorizationStatus: { manager.authorizationStatus }
+            authorizationStatus: { manager.authorizationStatus },
+            requestAlwaysAuthorization: {
+                .fireAndForget {
+                  #if os(iOS) || os(macOS) || os(watchOS) || targetEnvironment(macCatalyst)
+                    manager.requestAlwaysAuthorization()
+                  #endif
+                }
+            },
+            requestLocation: {
+                .fireAndForget { manager.requestLocation() }
+            },
+            requestWhenInUseAuthorization: {
+                .fireAndForget {
+                  #if os(iOS) || os(macOS) || os(watchOS) || targetEnvironment(macCatalyst)
+                    manager.requestWhenInUseAuthorization()
+                  #endif
+                }
+            },
+            startUpdatingLocation: {
+                .fireAndForget {
+                  #if os(iOS) || os(macOS) || os(watchOS) || targetEnvironment(macCatalyst)
+                    manager.startUpdatingLocation()
+                  #endif
+                }
+            }
         )
     }
 }
@@ -40,5 +64,20 @@ private final class LocationManagerDelegate: NSObject, CLLocationManagerDelegate
     
     init(_ subscriber: EffectTask<LocationManager.Action>.Subscriber) {
         self.subscriber = subscriber
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        print(#function)
+        self.subscriber.send(.didChangeAuthorization(manager))
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print(#function)
+        self.subscriber.send(.didUpdateLocations(locations))
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(#function)
+        self.subscriber.send(.didFailWithError(error as! LocationManager.Error))
     }
 }

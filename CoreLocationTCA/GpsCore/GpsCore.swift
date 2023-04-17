@@ -17,12 +17,27 @@ public struct Gps: ReducerProtocol {
     }
     
     public enum Action: Equatable {
+        case onAppear
         case locationManager(LocationManager.Action)
     }
+    
+    @Dependency(\.locationManagerClient) var locationManagerClient
+    
+    private struct LocationManagerId: Hashable {}
     
     public var body: some ReducerProtocol<State, Action> {
         Scope(state: \.locationManager, action: /Action.locationManager) {
             LocationManager()
+        }
+        
+        Reduce { state, action in
+            switch action {
+            case .onAppear:
+                return locationManagerClient.delegate().map(Action.locationManager).cancellable(id: LocationManagerId())
+                
+            default:
+                return .none
+            }
         }
     }
 }

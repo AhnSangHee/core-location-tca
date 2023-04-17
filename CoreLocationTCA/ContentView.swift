@@ -21,9 +21,11 @@ public struct ContentView: View {
             VStack {
                 Text("Gps")
                     .onAppear {
-                        viewStore.send(.locationManager(.requestAuthorizationStatus))
+                        viewStore.send(.locationManager(.checklocationServicesStatus))
                     }
             }
+            .onAppear { viewStore.send(.onAppear) }
+//            .alert(store.scope(state: \.locationManager.alert), dismiss: .locationManager(.alertDismissed))
         }
     }
 }
