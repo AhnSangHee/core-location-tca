@@ -20,6 +20,32 @@ struct LocationManagerClient {
     var requestLocation: () -> EffectTask<Never>
     var requestWhenInUseAuthorization: () -> EffectTask<Never>
     var startUpdatingLocation: () -> EffectTask<Never>
+    var set: (Properties) -> EffectTask<Never>
+    
+    public func set(
+        allowsBackgroundLocationUpdates: Bool? = nil,
+        showsBackgroundLocationIndicator: Bool? = nil
+    ) -> EffectTask<Never> {
+        self.set(
+            Properties(
+                allowsBackgroundLocationUpdates: allowsBackgroundLocationUpdates,
+                showsBackgroundLocationIndicator: showsBackgroundLocationIndicator
+            )
+        )
+    }
+}
+
+extension LocationManagerClient {
+    public struct Properties {
+        @available(macOS, unavailable)
+        @available(tvOS, unavailable)
+        var allowsBackgroundLocationUpdates: Bool? = nil
+        
+        @available(macOS, unavailable)
+        @available(tvOS, unavailable)
+        @available(watchOS, unavailable)
+        var showsBackgroundLocationIndicator: Bool? = nil
+    }
 }
 
 extension DependencyValues {

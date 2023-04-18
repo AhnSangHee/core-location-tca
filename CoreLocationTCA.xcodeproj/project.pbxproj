@@ -22,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		6A27037929EA64CD0052AA02 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		6A2703D729ED0DFF0052AA02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6A44117A29E8C9E40054259C /* CoreLocationTCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreLocationTCA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A44117D29E8C9E40054259C /* CoreLocationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationApp.swift; sourceTree = "<group>"; };
 		6A44117F29E8C9E40054259C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,6 +90,7 @@
 		6A44117C29E8C9E40054259C /* CoreLocationTCA */ = {
 			isa = PBXGroup;
 			children = (
+				6A2703D729ED0DFF0052AA02 /* Info.plist */,
 				6A4411AE29E90B1C0054259C /* Dependency */,
 				6A4411AB29E90A4B0054259C /* GpsCore */,
 				6A44118E29E8CB240054259C /* LocationManagerCore */,
@@ -350,6 +352,7 @@
 				DEVELOPMENT_TEAM = AUM397F8U5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CoreLocationTCA/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 좀 쓸게유😇";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 좀 쓸게유😇";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -381,6 +384,7 @@
 				DEVELOPMENT_TEAM = AUM397F8U5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CoreLocationTCA/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 좀 쓸게유😇";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 좀 쓸게유😇";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

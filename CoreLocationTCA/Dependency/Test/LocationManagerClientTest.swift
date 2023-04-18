@@ -17,6 +17,7 @@ extension LocationManagerClient: TestDependencyKey {
         requestAlwaysAuthorization: unimplemented("\(Self.self).requestAlwaysAuthorization"),
         requestLocation: unimplemented("\(Self.self).requestLocation"),
         requestWhenInUseAuthorization: unimplemented("\(Self.self).requestWhenInUseAuthorization"),
-        startUpdatingLocation: unimplemented("\(Self.self).startUpdatingLocation")
+        startUpdatingLocation: unimplemented("\(Self.self).startUpdatingLocation"),
+        set: unimplemented("\(Self.self).set")
     )
 }

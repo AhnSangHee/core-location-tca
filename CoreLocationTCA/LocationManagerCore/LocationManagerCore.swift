@@ -26,6 +26,7 @@ public struct LocationManager: ReducerProtocol {
         case didChangeAuthorization(CLLocationManager)
         case didUpdateLocations([CLLocation])
         case didFailWithError(String)
+        case setLocationProperty
         case showAlert(String)
     }
     
@@ -58,8 +59,11 @@ public struct LocationManager: ReducerProtocol {
                     }
 
                 case .authorizedAlways, .authorizedWhenInUse:
-                    return locationManagerClient.requestLocation().fireAndForget()
-
+                    return .merge(
+                        EffectTask(value: .setLocationProperty),
+                        locationManagerClient.requestLocation().fireAndForget()
+                    )
+                    
                 default:
                     return .none
                 }
@@ -86,6 +90,11 @@ public struct LocationManager: ReducerProtocol {
                 return .none
             case .didFailWithError(_):
                 return .none
+            case .setLocationProperty:
+                return self.locationManagerClient.set(
+                    allowsBackgroundLocationUpdates: true,
+                    showsBackgroundLocationIndicator: true
+                ).fireAndForget()
             case .showAlert:
                 return .none
             }

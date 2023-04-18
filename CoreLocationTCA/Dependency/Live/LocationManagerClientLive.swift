@@ -40,7 +40,7 @@ extension LocationManagerClient: DependencyKey {
                 }
             },
             requestLocation: {
-                .fireAndForget { manager.requestLocation() }
+                .fireAndForget { manager.startUpdatingLocation() }
             },
             requestWhenInUseAuthorization: {
                 .fireAndForget {
@@ -55,6 +55,20 @@ extension LocationManagerClient: DependencyKey {
                     manager.startUpdatingLocation()
                   #endif
                 }
+            },
+            set: { properties in
+                    .fireAndForget {
+                  #if os(iOS) || os(watchOS) || targetEnvironment(macCatalyst)
+                        if let allowsBackgroundLocationUpdates = properties.allowsBackgroundLocationUpdates {
+                            manager.allowsBackgroundLocationUpdates = allowsBackgroundLocationUpdates
+                        }
+                  #endif
+                  #if os(iOS) || targetEnvironment(macCatalyst)
+                        if let showsBackgroundLocationIndicator = properties.showsBackgroundLocationIndicator {
+                            manager.showsBackgroundLocationIndicator = showsBackgroundLocationIndicator
+                        }
+                  #endif
+                    }
             }
         )
     }
